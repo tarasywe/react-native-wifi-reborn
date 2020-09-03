@@ -109,6 +109,7 @@ public class RNWifiModule extends ReactContextBaseJavaModule {
         if (useWifi) {
             NetworkRequest networkRequest = new NetworkRequest.Builder()
                     .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+                    .removeCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) // experiment with the no internet flag
                     .build();
             connectivityManager.requestNetwork(networkRequest, new ConnectivityManager.NetworkCallback() {
                 @Override
